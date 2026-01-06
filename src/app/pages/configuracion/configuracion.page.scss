@@ -1,13 +1,3 @@
-/**
- * ============================================================
- * ESTILOS DE LA PÁGINA CONFIGURACIÓN
- * ============================================================
- * 
- * Estilos específicos para la página de ajustes.
- * ============================================================
- */
-
-/* Estilo para los items de configuración */
 ion-item h2 {
   font-weight: 500;
 }
@@ -17,7 +7,6 @@ ion-item p {
   color: var(--ion-color-medium);
 }
 
-/* Estilo para la tarjeta informativa */
 ion-card ion-text p {
   display: flex;
   align-items: flex-start;

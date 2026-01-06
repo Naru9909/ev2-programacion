@@ -1,34 +1,12 @@
-<!-- 
-============================================================
-TEMPLATE DE LA PÁGINA HOME (Inicio)
-============================================================
-
-Muestra una cita aleatoria del día y permite navegar
-a las otras secciones de la aplicación.
-============================================================
--->
-
-<!-- Encabezado de la página -->
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>Cita del Día</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<!-- Contenido principal -->
 <ion-content class="ion-padding">
   
-  <!-- 
-  Condicional: Si hay una cita, mostrarla con QuoteCard.
-  Si no hay citas, mostrar mensaje alternativo.
-  -->
   <div *ngIf="quote; else noQuotes">
-    <!-- 
-    Componente QuoteCard:
-    - [quote]: Envía la cita al componente hijo (@Input)
-    - [showDelete]: Controla si se muestra botón eliminar (@Input)
-    - (deleteClicked): Escucha el evento de eliminación (@Output)
-    -->
     <app-quote-card 
       [quote]="quote" 
       [showDelete]="allowDelete"
@@ -36,14 +14,12 @@ a las otras secciones de la aplicación.
     </app-quote-card>
   </div>
 
-  <!-- Template alternativo cuando no hay citas -->
   <ng-template #noQuotes>
     <ion-text color="medium" class="ion-text-center">
       <p>No hay citas disponibles. Ve a "Gestión" para agregar una.</p>
     </ion-text>
   </ng-template>
 
-  <!-- Botones de navegación a otras páginas -->
   <ion-button expand="block" routerLink="/gestion-citas" class="ion-margin-top">
     <ion-icon name="create-outline" slot="start"></ion-icon>
     Ir a Gestión de Citas

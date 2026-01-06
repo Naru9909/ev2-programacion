@@ -1,30 +1,11 @@
-<!-- 
-============================================================
-TEMPLATE DEL COMPONENTE QUOTE CARD
-============================================================
-
-Estructura visual de la tarjeta de cita usando ion-card.
-Muestra el autor, la frase y opcionalmente un botón de eliminar.
-============================================================
--->
-
 <ion-card>
-  <!-- Cabecera de la tarjeta: muestra el autor -->
   <ion-card-header>
     <ion-card-subtitle>Autor: {{ quote.author }}</ion-card-subtitle>
   </ion-card-header>
   
-  <!-- Contenido principal: la frase de la cita -->
   <ion-card-content>
-    <!-- Mostramos la frase entre comillas para dar formato de cita -->
     <h2>"{{ quote.phrase }}"</h2>
     
-    <!-- 
-    Botón de eliminar:
-    - *ngIf="showDelete": Solo se muestra si showDelete es true
-    - (click)="onDelete()": Llama al método que emite el evento al padre
-    - color="danger": Color rojo para indicar acción destructiva
-    -->
     <ion-button 
       *ngIf="showDelete" 
       color="danger" 

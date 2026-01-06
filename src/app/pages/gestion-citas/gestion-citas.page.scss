@@ -1,13 +1,3 @@
-/**
- * ============================================================
- * ESTILOS DE LA PÁGINA GESTIÓN DE CITAS
- * ============================================================
- * 
- * Estilos específicos para el formulario y lista de citas.
- * ============================================================
- */
-
-/* Estilo para los mensajes de error de validación */
 ion-text[color="danger"] {
   display: block;
   padding: 4px 16px;
@@ -24,18 +14,15 @@ ion-text[color="danger"] ion-icon {
   font-size: 1em;
 }
 
-/* Estilo para el separador de secciones */
 ion-item-divider {
   font-weight: bold;
   background: var(--ion-color-light);
 }
 
-/* Estilo para los items de citas en la lista */
 ion-item-sliding ion-item h2 {
   font-style: italic;
 }
 
-/* Estilo para el nombre del autor */
 ion-item-sliding ion-item p {
   font-weight: 500;
   color: var(--ion-color-medium);
