@@ -1,23 +1,6 @@
-<!-- 
-============================================================
-TEMPLATE DE LA PÁGINA GESTIÓN DE CITAS
-============================================================
-
-Contiene:
-1. Formulario para agregar nuevas citas con validaciones
-2. Lista de citas guardadas con opción de eliminar
-
-Validaciones del formulario:
-- Frase: Obligatorio, mínimo 5 caracteres
-- Autor: Obligatorio, mínimo 2 caracteres
-============================================================
--->
-
-<!-- Encabezado con botón de retroceso -->
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <!-- Botón para volver a Home -->
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
     <ion-title>Gestión de Citas</ion-title>
@@ -26,70 +9,40 @@ Validaciones del formulario:
 
 <ion-content class="ion-padding">
   
-  <!-- 
-  ============================================================
-  FORMULARIO REACTIVO PARA AGREGAR CITAS
-  ============================================================
-  
-  [formGroup]: Vincula el formulario al FormGroup del componente
-  (ngSubmit): Evento que se dispara al enviar el formulario
-  ============================================================
-  -->
   <form [formGroup]="formulario" (ngSubmit)="guardarCita()">
     
-    <!-- CAMPO: Frase de la cita -->
     <ion-item>
       <ion-label position="floating">Cita (Frase)</ion-label>
-      <!-- formControlName vincula este input al control 'phrase' -->
       <ion-input formControlName="phrase" type="text"></ion-input>
     </ion-item>
     
-    <!-- 
-    MENSAJES DE ERROR PARA EL CAMPO FRASE
-    Se muestran solo cuando el campo es inválido Y ha sido tocado
-    -->
     <ion-text color="danger" *ngIf="phrase?.touched && phrase?.invalid">
-      <!-- Error: Campo obligatorio -->
       <small *ngIf="phrase?.errors?.['required']">
         <ion-icon name="alert-circle-outline"></ion-icon>
         La cita es obligatoria.
       </small>
-      <!-- Error: Longitud mínima -->
       <small *ngIf="phrase?.errors?.['minlength']">
         <ion-icon name="alert-circle-outline"></ion-icon>
         La cita debe tener al menos 5 caracteres.
       </small>
     </ion-text>
 
-    <!-- CAMPO: Autor de la cita -->
     <ion-item class="ion-margin-top">
       <ion-label position="floating">Autor</ion-label>
-      <!-- formControlName vincula este input al control 'author' -->
       <ion-input formControlName="author" type="text"></ion-input>
     </ion-item>
     
-    <!-- 
-    MENSAJES DE ERROR PARA EL CAMPO AUTOR
-    Se muestran solo cuando el campo es inválido Y ha sido tocado
-    -->
     <ion-text color="danger" *ngIf="author?.touched && author?.invalid">
-      <!-- Error: Campo obligatorio -->
       <small *ngIf="author?.errors?.['required']">
         <ion-icon name="alert-circle-outline"></ion-icon>
         El autor es obligatorio.
       </small>
-      <!-- Error: Longitud mínima -->
       <small *ngIf="author?.errors?.['minlength']">
         <ion-icon name="alert-circle-outline"></ion-icon>
         El autor debe tener al menos 2 caracteres.
       </small>
     </ion-text>
 
-    <!-- 
-    BOTÓN DE ENVÍO
-    [disabled]="formulario.invalid": Deshabilitado si hay errores de validación
-    type="submit": Activa el evento (ngSubmit) del formulario
-    -->
     <ion-button 
       expand="block" 
       type="submit" 
@@ -100,46 +53,26 @@ Validaciones del formulario:
     </ion-button>
   </form>
 
-  <!-- Separador visual -->
   <ion-item-divider class="ion-margin-top">
     <ion-label>Citas Guardadas ({{ listaCitas.length }})</ion-label>
   </ion-item-divider>
 
-  <!-- 
-  ============================================================
-  LISTA DE CITAS GUARDADAS
-  ============================================================
-  
-  Muestra todas las citas almacenadas en SQLite.
-  Cada cita tiene un botón para eliminarla.
-  ============================================================
-  -->
   <ion-list>
-    <!-- Iteración sobre el array de citas -->
     <ion-item-sliding *ngFor="let c of listaCitas">
       <ion-item>
         <ion-label>
-          <!-- Frase de la cita -->
           <h2>"{{ c.phrase }}"</h2>
-          <!-- Autor de la cita -->
           <p>- {{ c.author }}</p>
         </ion-label>
       </ion-item>
       
-      <!-- Opciones deslizables (slide) -->
       <ion-item-options side="end">
-        <!-- 
-        Botón de eliminar con slide gesture
-        (click): Llama al método borrarCita con el ID
-        c.id!: El "!" indica que estamos seguros de que id existe
-        -->
         <ion-item-option color="danger" (click)="borrarCita(c.id!)">
           <ion-icon name="trash" slot="icon-only"></ion-icon>
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
     
-    <!-- Mensaje cuando no hay citas -->
     <ion-item *ngIf="listaCitas.length === 0">
       <ion-label class="ion-text-center" color="medium">
         No hay citas guardadas. ¡Agrega una!

@@ -1,20 +1,9 @@
-/**
- * ============================================================
- * ESTILOS DE LA PÁGINA HOME
- * ============================================================
- * 
- * Estilos específicos para la página de inicio.
- * ============================================================
- */
-
-/* Centrar contenido cuando no hay citas */
 ion-text.ion-text-center {
   display: block;
   text-align: center;
   padding: 40px 20px;
 }
 
-/* Estilo para el mensaje de "no hay citas" */
 ion-text.ion-text-center p {
   font-size: 1.1em;
 }
