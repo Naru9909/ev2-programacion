@@ -1,40 +1,17 @@
-/**
- * ============================================================
- * ESTILOS DEL COMPONENTE QUOTE CARD
- * ============================================================
- * 
- * Estilos específicos para la tarjeta de cita.
- * Ionic proporciona estilos predeterminados para ion-card,
- * por lo que solo agregamos personalizaciones menores.
- * ============================================================
- */
-
-/* Estilo para la tarjeta de cita */
 ion-card {
-  /* Sombra suave para dar profundidad */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  
-  /* Bordes redondeados */
-  border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    border-radius: 12px;
 }
 
-/* Estilo para el texto de la frase */
 ion-card-content h2 {
-  /* Fuente en cursiva para dar formato de cita */
-  font-style: italic;
-  
-  /* Color más oscuro para destacar */
-  color: var(--ion-color-dark);
-  
-  /* Espaciado del texto */
-  line-height: 1.5;
-  
-  /* Margen inferior para separar del botón */
-  margin-bottom: 16px;
+    font-style: italic;
+    color: var(--ion-color-dark);
+
+    line-height: 1.5;
+    margin-bottom: 16px;
 }
 
-/* Estilo para el botón de eliminar */
 ion-button[color="danger"] {
-  /* Margen superior para separar del texto */
-  margin-top: 12px;
+    margin-top: 12px;
 }
