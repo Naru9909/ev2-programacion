@@ -1,0 +1,11 @@
+{
+  "name": "ev2-programacion",
+  "integrations": {},
+  "type": "angular",
+  "servers": {
+    "dev": {
+      "host": "localhost",
+      "port": 8100
+    }
+  }
+}

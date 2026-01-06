@@ -1,0 +1,72 @@
+<!-- 
+============================================================
+TEMPLATE DE LA PÁGINA DE CONFIGURACIÓN
+============================================================
+
+Permite al usuario ajustar las preferencias de la aplicación.
+Los cambios se guardan automáticamente usando Capacitor Preferences.
+============================================================
+-->
+
+<!-- Encabezado con botón de retroceso -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!-- Botón para volver a Home -->
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Configuración</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+  <!-- 
+  ============================================================
+  LISTA DE OPCIONES DE CONFIGURACIÓN
+  ============================================================
+  -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Opciones de la Aplicación</ion-label>
+    </ion-list-header>
+    
+    <!-- 
+    OPCIÓN: Permitir borrar citas en Home
+    ============================================================
+    
+    ion-toggle: Componente interruptor on/off
+    - [checked]: Binding del estado actual (true/false)
+    - (ionChange): Evento que se dispara al cambiar el estado
+    
+    Cuando está activado, el botón "Eliminar" aparece
+    en la tarjeta de cita de la página Home.
+    ============================================================
+    -->
+    <ion-item>
+      <ion-icon name="trash-outline" slot="start" color="danger"></ion-icon>
+      <ion-label>
+        <h2>¿Permitir borrar citas en Inicio?</h2>
+        <p>Muestra el botón eliminar en la cita del día</p>
+      </ion-label>
+      <ion-toggle 
+        slot="end"
+        [checked]="allowDelete" 
+        (ionChange)="onToggleChange($event)">
+      </ion-toggle>
+    </ion-item>
+  </ion-list>
+  
+  <!-- Información adicional -->
+  <ion-card class="ion-margin-top">
+    <ion-card-content>
+      <ion-text color="medium">
+        <p>
+          <ion-icon name="information-circle-outline"></ion-icon>
+          Las configuraciones se guardan automáticamente y 
+          persistirán incluso al cerrar la aplicación.
+        </p>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
